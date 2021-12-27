@@ -1,0 +1,22 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<h1 align="center" style="background-color:red">Authentication Failed Data Not Found</h1>
+
+<h1 align=center>Welcome to User Authentication</h1>
+    <br><br>
+    <form action="login" method="post" align="center">
+
+        {% csrf_token %}
+
+        Email : <input name="email">
+        <br><br>
+        Password : <input name="password"><br>
+
+        <br><br>
+        <input type="submit" name="login" value="Login">
+        <input type="submit" name="register" value="Register">
+    </form>
+
+{% endblock %}

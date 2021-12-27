@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+      body {
+        padding-top: 10%;
+        background-image: url("../static/images/Django2.jpg");
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.61);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        
+      }
+        h1.page_info {
+          text-align: center;
+          color: darkblue;
+        }
+        h1 span {
+          background-color: cyan;
+        }
+        
+      </style>
+</head>
+<body>
+
+    <div align="center" class:"division">
+    <span>
+    <form action="register" method="post">
+        
+        {% csrf_token %}
+            
+        <h1 class="page_info"><span> Enter Registration Details</span></h1><br><br>
+        <input type="text" name="name" placeholder="Full Name" style="font-size:x-large; border:none; border-bottom:4px solid orange;" required><span></span><br><br>
+        <input type="email" name="email" placeholder="Email I'd" style="font-size:x-large; border:none; border-bottom:4px solid orange;" required><br><br>
+        <input type="password" name="password" placeholder="Password" style="font-size:x-large; border:none; border-bottom:4px solid orange;" required><br><br>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" style="font-size:x-large; border:none; border-bottom:4px solid orange;" required><br><br>
+        <input type="submit" value="Submit" style="background: chartreuse; font-size:larger"><br><br>
+    </span></div>
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3 align="center">{{message}}</h3>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

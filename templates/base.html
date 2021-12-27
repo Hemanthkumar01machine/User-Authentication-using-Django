@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+    <br><br>
+    <div align="center">
+    <form action="login" method="post">
+
+        {% csrf_token %}
+
+        <h1 align=center>Welcome to User Authentication</h1> <br><br>
+        <input type="text" name="name" placeholder="Username" style="font-size:x-large; border:none; border-bottom:5px solid darkblue; border-left:2px solid black; border-right:2px solid black;" required><br><br>
+        <input type="password" name="password" placeholder="Password" style="font-size:x-large; border:none; border-bottom:5px solid darkblue; border-left:2px solid black; border-right:2px solid black;" required><br><br>
+        <input type="submit" value="Login" style="background: chartreuse; font-size:larger"><br><br>
+    </form>
+
+    <form action="register" method="get">
+        {% csrf_token %}
+        <input type="submit" value="Register" style="background: chartreuse; font-size:larger">
+    </form>
+
+    <div style="background: red;">
+        {% for message in messages %}
+        <h3 align="center">{{ message }}</h3>
+        {% endfor %}
+    </div>
+
+    </div>
+
+      
+{% endblock %}
